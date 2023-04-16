@@ -1,0 +1,18 @@
+### 회원 가입
+
+POST http://localhost:3000/auth/signup
+Content-Type: application/json
+
+{
+  "username": "kimkim1",
+  "password": "helloworld"
+}
+
+### 로그인
+POST http://localhost:3000/auth/signin
+Content-Type: application/json
+
+{
+  "username": "kimkim1",
+  "password": "helloworld"
+}
