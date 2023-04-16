@@ -3,14 +3,17 @@ import { BoardsModule } from './boards/boards.module'
 import { TypeOrmModule } from '@nestjs/typeorm'
 import { typeormConfig } from './configs/typeorm.config'
 import { AuthModule } from './auth/auth.module'
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config'
 
 @Module({
   imports: [
+    ConfigModule.forRoot({ envFilePath: ['.env'], isGlobal: true }),
     BoardsModule,
-    TypeOrmModule.forRoot(typeormConfig),
+    TypeOrmModule.forRootAsync({
+      inject: [ConfigService],
+      useFactory: typeormConfig,
+    }),
     AuthModule,
-    ConfigModule.forRoot({ envFilePath: ['.env'] }),
   ],
   controllers: [],
   providers: [],
