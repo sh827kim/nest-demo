@@ -1,0 +1,8 @@
+server:
+  port: 3000
+db:
+  type: 'postgres'
+  synchronize: false
+  database: 'board-app'
+jwt:
+  expiresIn: 3600

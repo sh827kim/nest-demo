@@ -15,14 +15,22 @@ $ pnpm install
 
 Before running the app, you need to create a `.env` file in the root directory of the project.
 
-.env file should contain the following variables:
+.yaml file should contain the following variables:
+(You can use the default.yaml file in config folder as a reference)
 ```dotenv
-DATABASE_HOST=your-database-host
-DATABASE_PORT=your-database-port
-DATABASE_NAME=your-database-name
-DATABASE_USERNAME=your-database-username
-DATABASE_PASSWORD=your-database-password
-JWT_SECRET=your-jwt-secret
+server:
+  port: 3000
+db:
+  type: 'your-db-type'
+  host: 'your-host'
+  port: your-port
+  username: 'your-username'
+  password: 'your-password'
+  database: 'your-database'
+  synchronize: your-synchronize (true or false)
+jwt:
+  expiresIn: your-expired-time
+  secret: 'your-secret'
 ```
 
 Then, you can run the app with the following commands:

@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Logger,
   Param,
   ParseIntPipe,
   Patch,
@@ -22,9 +23,11 @@ import { Members } from '../auth/members.entity'
 @Controller('boards')
 @UseGuards(AuthGuard())
 export class BoardsController {
+  private logger = new Logger('BoardsController')
   constructor(private boardsService: BoardsService) {}
   @Get()
   async getAllBoards(@GetUser() members: Members) {
+    this.logger.verbose(`User ${members.username} retrieving all boards`)
     return this.boardsService.getAllBoards(members)
   }
 
@@ -38,6 +41,11 @@ export class BoardsController {
     @Body() createBoardDto: CreateBoardDto,
     @GetUser() user: Members,
   ) {
+    this.logger.verbose(
+      `User ${user.username} creating a new board. Data: ${JSON.stringify(
+        createBoardDto,
+      )}`,
+    )
     return this.boardsService.createBoard(createBoardDto, user)
   }
   @Delete('/:id')
