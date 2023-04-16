@@ -4,7 +4,7 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-  "username": "kimkim1",
+  "username": "kimkim3",
   "password": "helloworld"
 }
 
@@ -16,3 +16,9 @@ Content-Type: application/json
   "username": "kimkim1",
   "password": "helloworld"
 }
+
+> {% client.global.set("token", response.body.accessToken); %}
+
+### 테스트
+POST http://localhost:3000/auth/test
+Authorization: Bearer {{token}}
