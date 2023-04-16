@@ -4,7 +4,6 @@ import { ExtractJwt, Strategy } from 'passport-jwt'
 import { MembersRepository } from './members.repository'
 import { InjectRepository } from '@nestjs/typeorm'
 import * as config from 'config'
-import process from 'process'
 
 const jwtConfig = config.get('jwt')
 @Injectable()
