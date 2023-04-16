@@ -6,8 +6,8 @@ POST http://localhost:3000/boards
 Content-Type: application/json
 
 {
-  "title": "제목입니다.",
-  "description": "설명입니다."
+  "title": "제목입니다.5",
+  "description": "설명입니다.2"
 }
 
 > {% client.global.set("boardId", response.body.id); %}
